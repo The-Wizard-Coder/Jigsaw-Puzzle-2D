@@ -3,6 +3,7 @@ extends Area2D
 
 var index = -1
 var cell_index = -1
+var size
 
 var dragging = false
 var drag_offset = Vector2.ZERO
@@ -20,8 +21,11 @@ func init_piece(
 	sprite2d.texture = texture
 	position = pos
 	collishape.shape.set("size", piece_size)
+	size = piece_size
 
 func _on_input_event(viewport, event, shape_idx):
+	if G.game_over:
+		return
 	if G.dragging and dragging == false:
 		# do not drag current piece, if some other piece is being dragged
 		return
@@ -41,6 +45,7 @@ func _on_input_event(viewport, event, shape_idx):
 			drag_offset = global_position - get_global_mouse_position()
 		else:
 			# Release 
+			sprite2d.material.set("shader_parameter/shadow_offset", Vector2(0, 0))
 			G.dragging = false
 			dragging = false
 			z_index = 0
@@ -48,6 +53,8 @@ func _on_input_event(viewport, event, shape_idx):
 			G.check_win()
 	elif event is InputEventMouseMotion and dragging:
 		var new_pos = get_global_mouse_position() + drag_offset
+		sprite2d.material.set("shader_parameter/mouse_screen_pos", new_pos)
+		handle_drag_animation()
 		position = new_pos
 
 func drop_piece():
@@ -60,3 +67,6 @@ func drop_piece():
 				cell.occupy()
 				position = cell.global_position
 				return
+
+func handle_drag_animation():
+	sprite2d.material.set("shader_parameter/shadow_offset", Vector2(10, -10))

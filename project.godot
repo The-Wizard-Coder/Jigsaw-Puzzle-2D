@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Jigsaw Puzzle"
-run/main_scene="uid://i2f0k8k6vu1h"
+run/main_scene="uid://cqle3xq46is36"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -27,4 +27,4 @@ window/stretch/mode="canvas_items"
 
 [rendering]
 
-environment/defaults/default_clear_color=Color(0.0885598, 0.08856, 0.0885599, 1)
+environment/defaults/default_clear_color=Color(0.509733, 0.303878, 0.219421, 1)

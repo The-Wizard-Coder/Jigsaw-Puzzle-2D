@@ -1,0 +1,77 @@
+[gd_scene load_steps=6 format=3 uid="uid://cqle3xq46is36"]
+
+[ext_resource type="Script" uid="uid://b81vykmg3t37d" path="res://scripts/menu.gd" id="1_upctu"]
+[ext_resource type="FontFile" uid="uid://bwaks5gcr3p3e" path="res://others/ThaleahFat.ttf" id="1_xdvgc"]
+
+[sub_resource type="Gradient" id="Gradient_elqb8"]
+colors = PackedColorArray(0.650868, 0.592286, 0.737104, 1, 0.933333, 0.560784, 0.560784, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xdvgc"]
+gradient = SubResource("Gradient_elqb8")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xdvgc"]
+bg_color = Color(0.184897, 0.644932, 0.875038, 1)
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_upctu")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1023.0
+offset_bottom = 1030.0
+texture = SubResource("GradientTexture1D_xdvgc")
+
+[node name="Menu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 271.0
+offset_top = 314.0
+offset_right = 721.0
+offset_bottom = 413.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.241156, 0.241156, 0.241156, 1)
+theme_override_fonts/font = ExtResource("1_xdvgc")
+theme_override_font_sizes/font_size = 100
+text = "Puzzle Me!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Menu"]
+layout_mode = 0
+offset_left = 431.0
+offset_top = 443.0
+offset_right = 572.0
+offset_bottom = 499.0
+theme_override_fonts/font = ExtResource("1_xdvgc")
+theme_override_font_sizes/font_size = 52
+theme_override_styles/normal = SubResource("StyleBoxFlat_xdvgc")
+text = " Play "
+
+[node name="OptionButton" type="OptionButton" parent="Menu"]
+layout_mode = 0
+offset_left = 414.0
+offset_top = 528.0
+offset_right = 593.0
+offset_bottom = 563.0
+alignment = 1
+selected = 0
+item_count = 3
+popup/item_0/text = "Easy"
+popup/item_0/id = 0
+popup/item_1/text = "Medium"
+popup/item_1/id = 1
+popup/item_2/text = "Hard"
+popup/item_2/id = 2
+
+[connection signal="pressed" from="Menu/Button" to="." method="_on_button_pressed"]

@@ -1,6 +1,30 @@
-[gd_scene load_steps=3 format=3 uid="uid://dyn48x0h3qg57"]
+[gd_scene load_steps=5 format=3 uid="uid://dyn48x0h3qg57"]
 
 [ext_resource type="Script" uid="uid://ducpg8jf7gxu1" path="res://scripts/puzzle_piece.gd" id="1_jpqrk"]
+[ext_resource type="Shader" uid="uid://dvnw62j47di5l" path="res://shaders/PuzzlePiece.gdshader" id="2_0onat"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0onat"]
+resource_local_to_scene = true
+shader = ExtResource("2_0onat")
+shader_parameter/debug = false
+shader_parameter/border_scale = 2.0
+shader_parameter/shadow_offset = Vector2(0, 0)
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/blur_amount = 2.982
+shader_parameter/shadow_scale = 1.5
+shader_parameter/disable_rotating = true
+shader_parameter/fov = 90.0
+shader_parameter/cull_back = true
+shader_parameter/y_rot = 0.0
+shader_parameter/x_rot = 0.0
+shader_parameter/inset = 0.0
+shader_parameter/hovering = 0.0
+shader_parameter/rand_trans_power = 0.0
+shader_parameter/rand_seed = 0.0
+shader_parameter/vortex_amt = 0.0
+shader_parameter/rotation = 0.0
+shader_parameter/mouse_screen_pos = Vector2(0, 0)
+shader_parameter/mouse_screen_pos_test = Vector2(0, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ep5ip"]
 
@@ -8,6 +32,7 @@
 script = ExtResource("1_jpqrk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_0onat")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ep5ip")
