@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://i2f0k8k6vu1h"]
+
+[ext_resource type="Script" uid="uid://ddse4nagn3dod" path="res://scripts/main.gd" id="1_elqb8"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_elqb8")
+
+[node name="Cells" type="Node2D" parent="."]
+position = Vector2(286, 231)
+
+[node name="Pieces" type="Node2D" parent="."]
